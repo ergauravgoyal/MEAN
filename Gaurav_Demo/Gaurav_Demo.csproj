@@ -67,6 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\GauravDemo.pubxml" />
+    <Content Include="styles\styles.css">
+      <DependentUpon>styles.scss</DependentUpon>
+    </Content>
+    <Content Include="styles\styles.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,10 +80,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CreateUser.html" />
+    <Content Include="lib\angular.js" />
+    <Content Include="lib\modernizr-custom.js" />
+    <Content Include="lib\placeholder.js" />
+    <Content Include="scripts\demoapp.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="scripts\controller\" />
+    <Folder Include="scripts\directives\" />
+    <Folder Include="scripts\services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
