@@ -1,20 +1,20 @@
-﻿var app = angular.module("flapperNews", ['ui-router']);
+﻿var app = angular.module("flapperNews", []);
 app.factory('posts', [function () {
     var o = {
         posts: ["Gaurav Goyal"]
     };
     return o;
 }]);
-app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+//app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-    $stateProvider
-    .state('home', {
-        url: '/home',
-        templateUrl: '/home.html',
-        controller:'MainCtrl'
-    });
-    $urlRouterProvider.otherwise('home');
-}]);
+//    $stateProvider
+//    .state('home', {
+//        url: '/home',
+//        templateUrl: '/home.html',
+//        controller:'MainCtrl'
+//    });
+//    $urlRouterProvider.otherwise('home');
+//}]);
 app.controller('MainCtrl', ['$scope','posts', function ($scope,posts) {
     $scope.test = "Hello World !";
     $scope.varService = posts.posts;
@@ -47,3 +47,28 @@ app.controller('MainCtrl', ['$scope','posts', function ($scope,posts) {
     $scope.sourceLink = "https://thinkster.io/mean-stack-tutorial";
     alert("varService :" + $scope.varService);
 }]);
+app.directive('placeholder', function ($timeout) {
+        var i = document.createElement('input');
+        if ('placeholder' in i) {
+            return {}
+        }
+        return {
+            link: function (scope, elm, attrs) {
+                if (attrs.type === 'password') {
+                    return;
+                }
+                $timeout(function () {
+                    elm.val(attrs.placeholder);
+                    elm.bind('focus', function () {
+                        if (elm.val() == attrs.placeholder) {
+                            elm.val('');
+                        }
+                    }).bind('blur', function () {
+                        if (elm.val() == '') {
+                            elm.val(attrs.placeholder);
+                        }
+                    });
+                });
+            }
+        }
+    });
