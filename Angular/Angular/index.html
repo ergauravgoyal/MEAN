@@ -18,7 +18,7 @@
         <div class="col-md-6 col-md-offset-3">
 
             <div class="page-header">
-                <h1>Flapper News</h1>
+                <h1>Gaurav's Library</h1>
             </div>
             <div ng-repeat="post in posts | orderBy: '-upvotes'">
                 <!--Filters format the value of an expression for display to the user. Here order By basically arrange the items on basis of upvotes key
@@ -36,7 +36,7 @@
                 </span>
             </div>
             <form ng-submit="addPost()" style="margin-top:30px;">
-                <h3>Add a new post</h3>
+                <h3>Add a new Book</h3>
 
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Title" ng-model="title" />

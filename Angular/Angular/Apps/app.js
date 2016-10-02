@@ -2,10 +2,10 @@
 app.controller('MainCtrl', ['$scope', function ($scope) {
     $scope.test = "Hello World !";
     $scope.posts = [
-        { title: 'post 1', upvotes: 5 },
-        { title: 'post 2', upvotes: 9 },
-        { title: 'post 3', upvotes: 8 },
-        { title: 'post 4', upvotes: 2 }
+        { title: 'The Secret', upvotes: 5 },
+        { title: 'The 2 States', upvotes: 9 },
+        { title: 'My Ambition', upvotes: 8 },
+        { title: 'My Path to Sucess', upvotes: 2 }
     ];
     $scope.addPost = function () {
         if (!$scope.title || $scope.title === '') {
