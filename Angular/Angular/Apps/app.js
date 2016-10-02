@@ -28,4 +28,5 @@ app.controller('MainCtrl', ['$scope', function ($scope) {
 
     $scope.source = "This demo is created with the help of ";
     $scope.sourceLink = "https://thinkster.io/mean-stack-tutorial";
+
 }]);
