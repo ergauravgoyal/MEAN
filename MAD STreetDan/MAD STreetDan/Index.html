@@ -2,32 +2,72 @@
 <html>
 <head>
     <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <script src="Scripts/jquery-3.1.1.js"></script>
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angularappscripts/app.js"></script>
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        .imgproduct {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
 </head>
 <body ng-app="myApp" ng-controller="MainCtrl">
-    <div class="container">
-        <div class="row">
+    <header>
+        <div class="row" style="margin-left:100px">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-
-
                 <div class="col-lg-12 col-sm-12 col-md-12" style="font-size:30px;color:#d9843b">
                     <img src="images/madlogo.jpeg" style="width:30%;top:0px" />Fusion Style
                     <p style="font-size:20px;color:black;margin-left:100px">-Fashion is nothing without people!</p>
                 </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-12 col-sm-12 col-md-12" style="font-size:20px; margin-top:40px">
+                    Total Products Counts:{{myData.length}}
+                </div>
+                <input ng-model="search.$" placeholder="Search (by name or category)" style="width:300px"/>
+                </div>
 
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div ng-repeat="x in myData | filter:search" ng-if="$index %3==0">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <img ng-src="{{myData[$index].image}}" class="imgproduct" />
+                        <figcaption>{{myData[$index].name }}</figcaption>
+                        <p>{{myData[$index].price}} INR</p>
+                        <p>Ratings: {{myData[$index].rating}}</p>
+                        <p><b>Q </b> {{myData[$index].quantity}} pcs available</p>
+                        <p>{{mydata[$index].color}} Color</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <img ng-src="{{myData[$index + 1 ].image}}" class="imgproduct" />
+                        <figcaption>{{myData[$index + 1 ].name }}</figcaption>
+                        <p>{{myData[$index + 1].price}} INR</p>
+                        <p>Ratings: {{myData[$index + 1].rating}}</p>
+                        <p><b>Q </b> {{myData[$index + 1].quantity}} pcs available</p>
+                        <p style="background-color:{{mydata[$index+1].color}}">Color</p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <img ng-src="{{myData[$index + 2 ].image}}" class="imgproduct" />
+                        <figcaption>{{myData[$index + 2 ].name }}</figcaption>
+                        <p>{{myData[$index + 2].price}} INR</p>
+                        <p>Ratings: {{myData[$index + 2].rating}}</p>
+                        <p><b>Q </b> {{myData[$index + 2].quantity}} pcs available</p>
+                        <p style="background-color:{{mydata[$index + 2].color}}">Color</p>
+                    </div>
+                </div>
 
             </div>
         </div>
-        <ul>
-            <li ng-repeat="x in myData">
-                {{}}
-                {{x.id +'' + x.name}}
-            </li>
-        </ul>
-        </div>
+    </section>
+    <footer>
+        <b style="margin-left:100px">Page is developed by <a href="https://in.linkedin.com/in/gauravgoyal1911">Gaurav Goyal</a></b>
+    </footer>
 </body>
 </html>
