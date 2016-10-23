@@ -60,5 +60,45 @@
             });
 
     </script>-->
+
+    <script>
+
+
+        var emailAddress = "gaurav.d.goyal@nhs.com";
+        var orgShortName = "auh";
+        var x=orgShortName.toLowerCase();
+        var p = orgShortName.length;
+        console.log("Size of orgShortName is " + p);
+
+        if (n == 0) {
+            console.log("Starting position of text of orgShortName in EmailAddress " + n);
+        }
+        if (!emailAddress.toLowerCase().includes(orgShortName.toLowerCase())) {
+            emailAddress = orgShortName + "." + emailAddress;
+        }
+        var n = emailAddress.indexOf(x);
+        console.log(emailAddress);
+        if (emailAddress.toLowerCase().includes(orgShortName.toLowerCase())) {
+            if (n == 0) {
+                emailName = emailAddress.substring(p+1, emailAddress.indexOf("@"));
+                console.log("Email Name is :" + emailName);
+            }
+            else {
+                emailName = emailAddress.substring(0, emailAddress.indexOf("@"));
+                console.log("Email Name is :" + emailName);
+            }
+        }
+        else {
+            if(emailAddress.indexOf("@")>0){
+                emailName = emailAddress.substring(0, emailAddress.indexOf("@"));
+                alert("Email Name is :" + emailName);
+            }
+            else{
+                emailName = emailAddress.substring(0, emailAddress.length);
+                alert("Email Name is : " + emailName);
+            }
+        }
+
+    </script>
 </body>
 </html>
